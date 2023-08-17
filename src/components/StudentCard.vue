@@ -1,19 +1,19 @@
 <template>
-  <RouterLink
+  <!-- <RouterLink
     class="student-link"
     :to="{ name: 'student-detail', params: { id: student?.studentId } }"
-  >
+  > -->
     <article>
       <div class="card-wrapper">
         <div class="card-body">
           <h2>
             {{ student?.name }} {{ student?.surname }}
-            <span>({{ student?.studentId }})</span>
+            <span>ID: {{ student?.studentId }}</span>
           </h2>
         </div>
       </div>
     </article>
-  </RouterLink>
+  <!-- </RouterLink> -->
 </template>
 
 <script setup lang="ts">
