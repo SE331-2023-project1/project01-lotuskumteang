@@ -3,12 +3,16 @@
     <article>
       <div class="card-wrapper">
         <div class="card-body">
+          <div class="card-image">
+            <img :src="passenger?.image" alt="passenger image"/>
+          </div>
           <h2>
-            {{ passenger?.first_name }} {{ passenger?.last_name }} <span>({{ passenger?.gender }})</span>
+            {{ passenger?.name }} {{ passenger?.surname }} 
+            <!-- <span>({{ passenger?.gender }})</span> -->
+
           </h2>
-          <p class="card-email">{{ passenger?.email }}</p>
-          <!-- <p>@176.3.147.168</p> -->
-          <p>{{ passenger?.Source }} ---&gt; {{ passenger?.Destination }}</p>
+          <!-- <p class="card-email">{{ passenger?.email }}</p>
+          <p>{{ passenger?.Source }} ---&gt; {{ passenger?.Destination }}</p> -->
         </div>
       </div>
     </article>
@@ -18,10 +22,11 @@
 <script setup lang="ts">
 import type { Passenger } from '@/type'
 import type { PropType } from 'vue'
+import type { EventItem } from '@/type';
 
 const props = defineProps({
   passenger: {
-    type: Object as PropType<Passenger>,
+    type: Object as PropType<EventItem>,
     require: true
   }
 })
@@ -30,11 +35,24 @@ const props = defineProps({
 <style scoped>
 .card-wrapper {
   padding: 20px;
-  width: 350px;
+  width: 300px;
+  height: 300px;
   cursor: pointer;
   border: 1px solid #39495c;
-  /* margin-bottom: 18px; */
   border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.card-image {
+  height: 150px; 
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-wrapper:hover {

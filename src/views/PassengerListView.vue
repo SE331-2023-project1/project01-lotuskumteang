@@ -4,9 +4,9 @@ import type { Passenger } from '@/type'
 import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import PassengerService from '@/services/PassengerService'
-import Sidebar from '@/components/Sidebar.vue'
+import { type EventItem } from '@/type'
 
-const passengers: Ref<Array<Passenger>> = ref([])
+const passengers: Ref<Array<EventItem>> = ref([])
 
 const props = defineProps({
   page: {
@@ -24,7 +24,7 @@ watchEffect(() => {
 
 <template>
   <main class="container">
-    <PassengerCard v-for="passenger in passengers" :key="passenger.id" :passenger="passenger"></PassengerCard>
+    <PassengerCard v-for="passenger in passengers" :key="passenger.studentId" :passenger="passenger"></PassengerCard>
   </main>
 </template>
 
@@ -35,6 +35,7 @@ watchEffect(() => {
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
   row-gap: 3rem;
+  
 }
 
 @media (max-width: 1149px) {
@@ -46,6 +47,7 @@ watchEffect(() => {
 @media (max-width: 859px) {
   .container {
     grid-template-columns: 1fr;
+    
   }
 }
 </style>
