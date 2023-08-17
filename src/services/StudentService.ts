@@ -12,10 +12,10 @@ const apiClient: AxiosInstance = axios.create({
 })
 
 export default {
-  getStudentItems(perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
+  getStudents(perPage: number, page: number): Promise<AxiosResponse<StudentItem[]>> {
     return apiClient.get<StudentItem[]>('/students?_page=' + page + '&_limit=' + perPage)
   },
-  getStudentItemById(id: number): Promise<AxiosResponse<StudentItem>> {
+  getStudentById(id: number): Promise<AxiosResponse<StudentItem>> {
     return apiClient.get<StudentItem>('/students/' + id.toString())
   },
   // getAirlineById(id: number): Promise<AxiosResponse<StudentItem>> {
