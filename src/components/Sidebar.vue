@@ -32,7 +32,7 @@
                     class="fill-current group-hover:text-gray-600"
                   ></path>
                 </svg>
-                <RouterLink :to="{ name: 'passenger-list' }" class="link-item"
+                <RouterLink :to="{ name: 'student-list' }" class="link-item"
                   ><span class="group-hover:text-white">Home</span></RouterLink
                 >
               </a>
