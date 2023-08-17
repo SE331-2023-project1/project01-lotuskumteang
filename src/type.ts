@@ -10,13 +10,11 @@ export interface EventItem {
   petsAllowed: boolean
 }
 
+// StudentItem type
 export interface StudentItem {
-  id: number
   studentId: string
   name: string
   surname: string
-  gpa: number
   image: string
-  penAmount: string
-  description: string
+  courseId: [string]
 }
