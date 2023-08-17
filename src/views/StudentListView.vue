@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import PassengerCard from '@/components/PassengerCard.vue'
-import type { Passenger } from '@/type'
+import StudentCard from '@/components/StudentCard.vue'
+import type { StudentItem } from '@/type'
 import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
-import PassengerService from '@/services/PassengerService'
+import StudentService from '@/services/StudentService'
 import Sidebar from '@/components/Sidebar.vue'
 
-const passengers: Ref<Array<Passenger>> = ref([])
+const Students: Ref<Array<StudentItem>> = ref([])
 
 const props = defineProps({
   page: {
@@ -16,19 +16,19 @@ const props = defineProps({
 })
 
 watchEffect(() => {
-  PassengerService.getPassengers(10, props.page).then((response) => {
-    passengers.value = response.data
+  StudentService.getStudents(10, props.page).then((response) => {
+    Students.value = response.data
   })
 })
 </script>
 
 <template>
   <main class="container">
-    <PassengerCard
-      v-for="passenger in passengers"
-      :key="passenger.id"
-      :passenger="passenger"
-    ></PassengerCard>
+    <StudentCard
+      v-for="Student in Students"
+      :key="Student.studentId"
+      :Student="Student"
+    ></StudentCard>
   </main>
 </template>
 
