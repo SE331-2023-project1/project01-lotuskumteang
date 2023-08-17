@@ -1,18 +1,15 @@
 <template>
   <RouterLink
-    class="passenger-link"
-    :to="{ name: 'passenger-detail', params: { id: passenger?.id } }"
+    class="student-link"
+    :to="{ name: 'student-detail', params: { id: student?.studentId } }"
   >
     <article>
       <div class="card-wrapper">
         <div class="card-body">
           <h2>
-            {{ passenger?.first_name }} {{ passenger?.last_name }}
-            <span>({{ passenger?.gender }})</span>
+            {{ student?.name }} {{ student?.surname }}
+            <span>({{ student?.studentId }})</span>
           </h2>
-          <p class="card-email">{{ passenger?.email }}</p>
-          <!-- <p>@176.3.147.168</p> -->
-          <p>{{ passenger?.Source }} ---&gt; {{ passenger?.Destination }}</p>
         </div>
       </div>
     </article>
@@ -20,12 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import type { Passenger } from '@/type'
+import type { StudentItem } from '@/type'
 import type { PropType } from 'vue'
 
 const props = defineProps({
-  passenger: {
-    type: Object as PropType<Passenger>,
+  student: {
+    type: Object as PropType<StudentItem>,
     require: true
   }
 })
@@ -46,7 +43,7 @@ const props = defineProps({
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-.passenger-link {
+.student-link {
   color: #2c3e50;
   text-decoration: none;
 }
