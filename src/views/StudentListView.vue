@@ -4,9 +4,8 @@ import type { StudentItem } from '@/type'
 import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import StudentService from '@/services/StudentService'
-import Sidebar from '@/components/Sidebar.vue'
 
-const Students: Ref<Array<StudentItem>> = ref([])
+const students: Ref<Array<StudentItem>> = ref([])
 
 const props = defineProps({
   page: {
@@ -17,7 +16,8 @@ const props = defineProps({
 
 watchEffect(() => {
   StudentService.getStudents(10, props.page).then((response) => {
-    Students.value = response.data
+    students.value = response.data
+    console.log(response.data);
   })
 })
 </script>
@@ -25,9 +25,9 @@ watchEffect(() => {
 <template>
   <main class="container">
     <StudentCard
-      v-for="Student in Students"
-      :key="Student.studentId"
-      :Student="Student"
+      v-for="student in students"
+      :key="student.studentId"
+      :student="student"
     ></StudentCard>
   </main>
 </template>
