@@ -50,7 +50,7 @@ span {
   font-weight: bold;
 }
 #flashMessage {
-  border: 1px solid rgba(74,194,107,0.4);
+  border: 1px solid rgba(74, 194, 107, 0.4);
   padding: 20px 16px;
   border-radius: 6px;
   background-color: #dafbe1;

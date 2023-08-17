@@ -24,7 +24,11 @@ watchEffect(() => {
 
 <template>
   <main class="container">
-    <PassengerCard v-for="passenger in passengers" :key="passenger.id" :passenger="passenger"></PassengerCard>
+    <PassengerCard
+      v-for="passenger in passengers"
+      :key="passenger.id"
+      :passenger="passenger"
+    ></PassengerCard>
   </main>
 </template>
 

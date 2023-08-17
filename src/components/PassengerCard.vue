@@ -1,10 +1,14 @@
 <template>
-  <RouterLink class="passenger-link" :to="{ name: 'passenger-detail', params: { id: passenger?.id } }">
+  <RouterLink
+    class="passenger-link"
+    :to="{ name: 'passenger-detail', params: { id: passenger?.id } }"
+  >
     <article>
       <div class="card-wrapper">
         <div class="card-body">
           <h2>
-            {{ passenger?.first_name }} {{ passenger?.last_name }} <span>({{ passenger?.gender }})</span>
+            {{ passenger?.first_name }} {{ passenger?.last_name }}
+            <span>({{ passenger?.gender }})</span>
           </h2>
           <p class="card-email">{{ passenger?.email }}</p>
           <!-- <p>@176.3.147.168</p> -->
@@ -53,7 +57,7 @@ const props = defineProps({
   font-weight: bold;
 }
 
-.card-body h2>span {
+.card-body h2 > span {
   font-size: 16px;
   color: #818181;
 }

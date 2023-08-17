@@ -9,8 +9,8 @@ import 'nprogress/nprogress.css'
 
 const app = createApp(App)
 
-const x = "helxysx"
-console.log(x);
+const x = 'helxysx'
+console.log(x)
 
 app.use(createPinia())
 app.use(router)

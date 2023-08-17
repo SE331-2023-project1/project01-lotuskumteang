@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { usePassengerStore, useAirlineStore } from '@/stores/passenger';
-import { storeToRefs } from 'pinia';
+import { usePassengerStore, useAirlineStore } from '@/stores/passenger'
+import { storeToRefs } from 'pinia'
 
 const storePassenger = usePassengerStore()
 const passenger = storeToRefs(storePassenger).passenger
@@ -13,8 +13,8 @@ const id = ref(passenger?.value?.id)
 <template>
   <div v-if="passenger">
     <div class="nav">
-      <router-link :to="{ name: 'passenger-detail', params: { id } }">Detail</router-link> | 
-      <router-link :to="{ name: 'passenger-airline', params: { id } }">Airline</router-link> | 
+      <router-link :to="{ name: 'passenger-detail', params: { id } }">Detail</router-link> |
+      <router-link :to="{ name: 'passenger-airline', params: { id } }">Airline</router-link> |
       <router-link :to="{ name: 'passenger-edit', params: { id } }">Edit</router-link>
     </div>
 

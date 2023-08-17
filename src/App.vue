@@ -7,17 +7,14 @@ import Sidebar from './components/Sidebar.vue'
   <!-- <Sidebar/>  
   <RouterView /> -->
   <header>
-   
     <div class="flex-container">
-      <Sidebar/>  <RouterView />
-      
+      <Sidebar /> <RouterView />
+
       <!-- <nav>
         <RouterLink :to="{ name: 'passenger-list' }">Home</RouterLink>
         <RouterLink :to="{ name: 'about' }">About</RouterLink>
       </nav> -->
-      
     </div>
-    
   </header>
 </template>
 

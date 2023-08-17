@@ -14,9 +14,7 @@ defineProps({
   <div v-if="passenger">
     <div class="card-wrapper">
       <div class="card-body">
-        <h2>
-          {{ passenger?.first_name }} {{ passenger?.last_name }} 
-        </h2>
+        <h2>{{ passenger?.first_name }} {{ passenger?.last_name }}</h2>
         <p><span>Email:</span> {{ passenger?.email }}</p>
         <p><span>Gender:</span> {{ passenger?.gender }}</p>
         <p><span>IP_Address:</span> {{ passenger?.ip_address }}</p>
