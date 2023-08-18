@@ -1,22 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PassengerListView from '../views/PassengerListView.vue'
+import StudentListView from '../views/StudentListView.vue'
+import StudentLayoutView from '../views/details/StudentLayoutView.vue'
+import StudentDetailView from '../views/details/StudentDetailView.vue'
 import AboutView from '../views/AboutView.vue'
-import PassengerDetailView from '../views/details/PassengerDetailView.vue'
-import PassengerLayoutView from '../views/details/PassengerLayoutView.vue'
-import PassengerAirlineView from '../views/details/PassengerAirlineView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
-import PassengerEditView from '../views/details/PassengerEditView.vue'
 import NProgress from 'nprogress'
-import PassengerService from '@/services/PassengerService'
-import { usePassengerStore, useAirlineStore } from '@/stores/passenger'
+import StudentService from '@/services/StudentService'
+import { useStudentStore } from '@/stores/student'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'passenger-list',
-      component: PassengerListView,
+      name: 'student-list',
+      component: StudentListView,
       props: (route) => ({
         page: parseInt((route.query?.page as string) || '1')
       })
@@ -27,52 +25,39 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/passenger/:id',
-      name: 'passenger-layout',
-      component: PassengerLayoutView,
+      path: '/student/:id',
+      name: 'student-layout',
+      component: StudentLayoutView,
       props: true,
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
-        const passengerStore = usePassengerStore()
-        const airlineStore = useAirlineStore()
-        PassengerService.getPassengerById(id)
+        const studentStore = useStudentStore()
+        StudentService.getStudentById(id)
           .then((response) => {
-            passengerStore.setPassenger(response.data)
-            PassengerService.getAirlineById(Number(response.data.airlineId))
-              .then((response) => {
-                airlineStore.setAirline(response.data)
-              })
-              .catch((error) => {
-                console.log(error)
-                if (error.response && error.response.status === 404) {
-                  return { name: '404-resource', params: { resource: 'AirlineId' } }
-                }
-              })
+            studentStore.setStudent(response.data)
+            // PassengerService.getAirlineById(Number(response.data.airlineId))
+            //   .then((response) => {
+            //     airlineStore.setAirline(response.data)
+            //   })
+            //   .catch((error) => {
+            //     console.log(error)
+            //     if (error.response && error.response.status === 404) {
+            //       return { name: '404-resource', params: { resource: 'AirlineId' } }
+            //     }
+            //   })
           })
           .catch((error) => {
             console.log(error)
             if (error.response && error.response.status === 404) {
-              return { name: '404-resource', params: { resource: 'PassengerId' } }
+              return { name: '404-resource', params: { resource: 'id' } }
             }
           })
       },
       children: [
         {
-          path: '',
-          name: 'passenger-detail',
-          component: PassengerDetailView,
-          props: true
-        },
-        {
-          path: 'airline',
-          name: 'passenger-airline',
-          component: PassengerAirlineView,
-          props: true
-        },
-        {
-          path: 'edit',
-          name: 'passenger-edit',
-          component: PassengerEditView,
+          path: 'detail',
+          name: 'student-detail',
+          component: StudentDetailView,
           props: true
         }
       ]
@@ -95,7 +80,7 @@ const router = createRouter({
     } else {
       return { top: 0 }
     }
-  },
+  }
 })
 
 router.beforeEach(() => {

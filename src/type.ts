@@ -6,10 +6,16 @@ export interface EventItem {
     courseId: string[]
 }
 
+// StudentItem type
 export interface StudentItem {
-  studentId: number,
-    name: string,
-    surname: string,
-    image: string,
-    courseId: string[]
+  id: string
+  name: string
+  surname: string
+  image: string
+  advisorId: string
+  courseId: [string]
+}
+
+export interface CommentItem {
+  comment: string
 }

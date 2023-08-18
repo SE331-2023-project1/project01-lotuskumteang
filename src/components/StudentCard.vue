@@ -1,18 +1,18 @@
 <template>
-  <RouterLink class="passenger-link" :to="{ name: 'passenger-detail', params: { id: passenger?.id } }">
+  <RouterLink
+    class="student-link"
+    :to="{ name: 'student-detail', params: { id: student?.id } }"
+  >
     <article>
       <div class="card-wrapper">
         <div class="card-body">
           <div class="card-image">
-            <img :src="passenger?.image" alt="passenger image"/>
+            <img :src="student?.image" alt="passenger image"/>
           </div>
           <h2>
-            {{ passenger?.name }} {{ passenger?.surname }} 
-            <!-- <span>({{ passenger?.gender }})</span> -->
-
+            {{ student?.name }} {{ student?.surname }}
+            <span>ID: {{ student?.id }}</span>
           </h2>
-          <!-- <p class="card-email">{{ passenger?.email }}</p>
-          <p>{{ passenger?.Source }} ---&gt; {{ passenger?.Destination }}</p> -->
         </div>
       </div>
     </article>
@@ -20,13 +20,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Passenger } from '@/type'
+import type { StudentItem } from '@/type'
 import type { PropType } from 'vue'
 import type { EventItem } from '@/type';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
-  passenger: {
-    type: Object as PropType<EventItem>,
+  student: {
+    type: Object as PropType<StudentItem>,
     require: true
   }
 })
@@ -60,7 +61,7 @@ const props = defineProps({
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-.passenger-link {
+.student-link {
   color: #2c3e50;
   text-decoration: none;
 }
@@ -71,7 +72,7 @@ const props = defineProps({
   font-weight: bold;
 }
 
-.card-body h2>span {
+.card-body h2 > span {
   font-size: 16px;
   color: #818181;
 }
