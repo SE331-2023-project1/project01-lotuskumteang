@@ -1,27 +1,27 @@
 {
   "students": [{
-    "studentId": 642115024,
+    "id": 642115024,
     "name": "Thaipat",
     "surname": "Sukhumpraisan",
     "image": "https://rb.gy/1jp8m",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115025,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 2",
     "image": "TODO",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115026,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 3",
     "image": "TODO",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115027,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 4",
     "image": "TODO",
