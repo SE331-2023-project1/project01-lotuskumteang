@@ -20,6 +20,7 @@
 import type { StudentItem } from '@/type'
 import type { PropType } from 'vue'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   student: {
     type: Object as PropType<StudentItem>,
