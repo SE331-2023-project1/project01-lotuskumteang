@@ -15,7 +15,7 @@ const props = defineProps({
 })
 
 watchEffect(() => {
-  StudentService.getStudents(10, props.page).then((response) => {
+  StudentService.getStudents(6, props.page).then((response) => {
     students.value = response.data
     console.log(response.data);
   })
@@ -23,35 +23,13 @@ watchEffect(() => {
 </script>
 
 <template>
-  <main class="container">
-    <StudentCard
-      v-for="student in students"
+  
+  <main class="mt-12 mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-x-16 gap-y-16">
+    <StudentCard  v-for="student in students"
       :key="student.id"
-      :student="student"
-    ></StudentCard>
+      :student="student"/>
   </main>
 </template>
 
 <style scoped>
-.container {
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  row-gap: 3rem;
-  
-}
-
-@media (max-width: 1149px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 859px) {
-  .container {
-    grid-template-columns: 1fr;
-    
-  }
-}
 </style>

@@ -15,38 +15,18 @@ const props = defineProps({
 })
 
 watchEffect(() => {
-  AdvisorService.getAdvisors(10, props.page).then((response) => {
+  AdvisorService.getAdvisors(6, props.page).then((response) => {
     advisors.value = response.data
   })
 })
 </script>
 
 <template>
-  <main class="container">
+  <main class="mt-12 mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-x-16 gap-y-16">
     <AdvisorCard v-for="advisor in advisors" :key="advisor.id" :advisor="advisor"></AdvisorCard>
   </main>
 </template>
 
 <style scoped>
-.container {
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  row-gap: 3rem;
-  
-}
 
-@media (max-width: 1149px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 859px) {
-  .container {
-    grid-template-columns: 1fr;
-    
-  }
-}
 </style>
