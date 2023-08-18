@@ -1,15 +1,14 @@
 <template>
-  <RouterLink
-    class="student-link"
+  <RouterLink class="student-link hover:scale-105 transform transition-transform duration-300 hover:shadow-md"
     :to="{ name: 'student-detail', params: { id: student?.id } }"
   >
     <article>
-      <div class="card-wrapper">
+      <div class="card-wrapper p-5 w-72 h-72 border border-gray-600 rounded-lg overflow-hidden">
         <div class="card-body">
-          <div class="card-image">
-            <img :src="student?.image" alt="passenger image"/>
+          <div class="card-image h-36 overflow-hidden">
+            <img class="w-full h-full object-cover" :src="student?.image" alt="student image" />
           </div>
-          <h2>
+          <h2 class="mt-3 text-2xl font-bold">
             {{ student?.name }} {{ student?.surname }}
             <span>ID: {{ student?.id }}</span>
           </h2>
@@ -22,7 +21,6 @@
 <script setup lang="ts">
 import type { StudentItem } from '@/type'
 import type { PropType } from 'vue'
-import type { EventItem } from '@/type';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
@@ -33,56 +31,3 @@ const props = defineProps({
 })
 </script>
 
-<style scoped>
-.card-wrapper {
-  padding: 20px;
-  width: 300px;
-  height: 300px;
-  cursor: pointer;
-  border: 1px solid #39495c;
-  border-radius: 8px;
-  overflow: hidden;
-
-}
-
-.card-image {
-  height: 150px; 
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-wrapper:hover {
-  transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-}
-
-.student-link {
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-.card-body h2 {
-  margin: 0 0 12px 0;
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
-.card-body h2 > span {
-  font-size: 16px;
-  color: #818181;
-}
-
-.card-body .card-email {
-  margin: 0 0 12px 0;
-  color: #818181;
-}
-
-.card-body p {
-  margin: 0 0 12px 0;
-}
-</style>
