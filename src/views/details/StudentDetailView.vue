@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import CommentForm from '@/components/CommentForm.vue';
+import CommentForm from '@/components/CommentForm.vue'
+import CommentList from '@/components/CommentList.vue'
 import type { StudentItem, CommentItem } from '@/type'
 import type { PropType, Ref } from 'vue'
 import { ref } from 'vue'
@@ -24,6 +25,7 @@ function addComment(comment: CommentItem) {
         <p><span>ID:</span> {{ student?.id }}</p>
         <img :src="student?.image" alt="" />
         <CommentForm @comment-submit="addComment"></CommentForm>
+        <CommentList :comments="comments"></CommentList>
       </div>
     </div>
   </div>
