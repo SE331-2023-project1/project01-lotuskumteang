@@ -1,27 +1,27 @@
 {
   "students": [{
-    "studentId": 642115024,
+    "id": 642115024,
     "name": "Thaipat",
     "surname": "Sukhumpraisan",
     "image": "TODO",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115024,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 2",
     "image": "TODO",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115024,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 3",
     "image": "TODO",
     "courseId": ["953331"]
   },
   {
-    "studentId": 642115024,
+    "id": 642115024,
     "name": "Thaipat",
     "surname": "Sukhumpraisan 4",
     "image": "TODO",

@@ -26,7 +26,7 @@ watchEffect(() => {
   <main class="container">
     <StudentCard
       v-for="student in students"
-      :key="student.studentId"
+      :key="student.id"
       :student="student"
     ></StudentCard>
   </main>

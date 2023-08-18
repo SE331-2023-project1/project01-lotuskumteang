@@ -49,7 +49,7 @@ const router = createRouter({
           .catch((error) => {
             console.log(error)
             if (error.response && error.response.status === 404) {
-              return { name: '404-resource', params: { resource: 'StudentId' } }
+              return { name: '404-resource', params: { resource: 'id' } }
             }
           })
       },

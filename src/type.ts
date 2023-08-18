@@ -12,9 +12,10 @@ export interface EventItem {
 
 // StudentItem type
 export interface StudentItem {
-  studentId: string
+  id: string
   name: string
   surname: string
   image: string
+  advisorId: string
   courseId: [string]
 }

@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia'
 
 const useStudent = useStudentStore()
 const student = storeToRefs(useStudent).student
-const id = ref(student?.value?.studentId)
+const id = ref(student?.value?.id)
 </script>
 
 <template>
