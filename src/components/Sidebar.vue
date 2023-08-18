@@ -61,33 +61,6 @@
             </li>
           </ul>
         </div>
-        <div class="w-max -mb-3">
-          <a
-            href="#"
-            class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white hover:bg-gray-700"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 group-hover:fill-white"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-                class="fill-current text-white dark:fill-slate-600"
-              ></path>
-              <path
-                d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
-                class="fill-current text-gray-500 group-hover:text-gray-600"
-              ></path>
-              <path
-                d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
-                class="fill-current group-hover:text-gray-600"
-              ></path>
-            </svg>
-            <span class="group-hover:text-white">Settings</span>
-          </a>
-        </div>
       </div>
     </div>
   </div>
