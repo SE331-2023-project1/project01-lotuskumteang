@@ -12,7 +12,7 @@ export interface StudentItem {
   name: string
   surname: string
   image: string
-  id: string
+  AdvisorId: string
   courseId: [string]
 }
 
