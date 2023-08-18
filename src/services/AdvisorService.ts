@@ -15,13 +15,13 @@ export default {
   addAdvisor(advisor: Advisor): Promise<AxiosResponse<void>> {
     return apiClient.post<void>('/advisors', advisor);
   },
-  updateAdvisor(advisorId: string, newData: Partial<Advisor>): Promise<AxiosResponse<void>> {
-    return apiClient.put<void>(`/advisors/${advisorId}`, newData);
+  updateAdvisor(id: string, newData: Partial<Advisor>): Promise<AxiosResponse<void>> {
+    return apiClient.put<void>(`/advisors/${id}`, newData);
   },
   getAdvisors(perPage: number, page: number): Promise<AxiosResponse<Advisor[]>> {
     return apiClient.get<Advisor[]>('/advisors?_limit=' + perPage + '&_page=' + page)
   },
-  getAdvisorById(advisorId: number): Promise<AxiosResponse<Advisor>>{
-    return apiClient.get<Advisor>('advisors/' + advisorId.toString())
+  getAdvisorById(id: number): Promise<AxiosResponse<Advisor>>{
+    return apiClient.get<Advisor>('advisors/' + id.toString())
 }
 };

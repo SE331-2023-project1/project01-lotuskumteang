@@ -12,7 +12,7 @@ export interface StudentItem {
   name: string
   surname: string
   image: string
-  advisorId: string
+  id: string
   courseId: [string]
 }
 
@@ -21,7 +21,7 @@ export interface CommentItem {
 }
 
 export interface Advisor {
-  advisorId: string;
+  id: string;
   name: string;
   surname: string;
   image: string;

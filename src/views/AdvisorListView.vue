@@ -23,7 +23,7 @@ watchEffect(() => {
 
 <template>
   <main class="container">
-    <AdvisorCard v-for="advisor in advisors" :key="advisor.advisorId" :advisor="advisor"></AdvisorCard>
+    <AdvisorCard v-for="advisor in advisors" :key="advisor.id" :advisor="advisor"></AdvisorCard>
   </main>
 </template>
 

@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia';
 
 const storeAdvisor = useAdvisorStore()
 const advisor = storeToRefs(storeAdvisor).advisor
-const id = ref(advisor?.value?.advisorId)
+const id = ref(advisor?.value?.id)
 </script>
 
 <template>

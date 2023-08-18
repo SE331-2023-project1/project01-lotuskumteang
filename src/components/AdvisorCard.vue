@@ -1,5 +1,5 @@
 <template>
-    <RouterLink class="advisor-link" :to="{ name: 'advisor-detail', params: { id: advisor?.advisorId } }">
+    <RouterLink class="advisor-link" :to="{ name: 'advisor-detail', params: { id: advisor?.id } }">
       <article>
         <div class="card-wrapper">
           <div class="card-body">
