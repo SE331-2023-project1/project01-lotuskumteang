@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StudentListView from '../views/StudentListView.vue'
+import StudentLayoutView from '../views/details/StudentLayoutView.vue'
+import StudentDetailView from '../view/details/StudentDetailView.vue'
 import AboutView from '../views/AboutView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import NProgress from 'nprogress'
@@ -22,56 +24,44 @@ const router = createRouter({
       name: 'about',
       component: AboutView
     },
-    // {
-    //   path: '/passenger/:id',
-    //   name: 'passenger-layout',
-    //   component: StudentLayoutView,
-    //   props: true,
-    //   beforeEnter: (to) => {
-    //     const id: number = parseInt(to.params.id as string)
-    //     const studentStore = useStudentStore()
-    //     StudentService.getStudentById(id)
-    //       .then((response) => {
-    //         studentStore.setStudent(response.data)
-    //         // PassengerService.getAirlineById(Number(response.data.airlineId))
-    //         //   .then((response) => {
-    //         //     airlineStore.setAirline(response.data)
-    //         //   })
-    //         //   .catch((error) => {
-    //         //     console.log(error)
-    //         //     if (error.response && error.response.status === 404) {
-    //         //       return { name: '404-resource', params: { resource: 'AirlineId' } }
-    //         //     }
-    //         //   })
-    //       })
-    //       .catch((error) => {
-    //         console.log(error)
-    //         if (error.response && error.response.status === 404) {
-    //           return { name: '404-resource', params: { resource: 'PassengerId' } }
-    //         }
-    //       })
-    //   },
-    //   children: [
-    //     {
-    //       path: '',
-    //       name: 'passenger-detail',
-    //       component: PassengerDetailView,
-    //       props: true
-    //     },
-    //     {
-    //       path: 'airline',
-    //       name: 'passenger-airline',
-    //       component: PassengerAirlineView,
-    //       props: true
-    //     },
-    //     {
-    //       path: 'edit',
-    //       name: 'passenger-edit',
-    //       component: PassengerEditView,
-    //       props: true
-    //     }
-    //   ]
-    // },
+    {
+      path: '/student/:id',
+      name: 'student-layout',
+      component: StudentLayoutView,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const studentStore = useStudentStore()
+        StudentService.getStudentById(id)
+          .then((response) => {
+            studentStore.setStudent(response.data)
+            // PassengerService.getAirlineById(Number(response.data.airlineId))
+            //   .then((response) => {
+            //     airlineStore.setAirline(response.data)
+            //   })
+            //   .catch((error) => {
+            //     console.log(error)
+            //     if (error.response && error.response.status === 404) {
+            //       return { name: '404-resource', params: { resource: 'AirlineId' } }
+            //     }
+            //   })
+          })
+          .catch((error) => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              return { name: '404-resource', params: { resource: 'StudentId' } }
+            }
+          })
+      },
+      children: [
+        {
+          path: 'detail',
+          name: 'student-detail',
+          component: StudentDetailView,
+          props: true
+        }
+      ]
+    },
     {
       path: '/:catchAll(.*)',
       name: 'not-found',
