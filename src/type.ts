@@ -13,3 +13,11 @@ export interface StudentItem {
     image: string,
     courseId: string[]
 }
+
+export interface Advisor {
+  advisorId: string;
+  name: string;
+  surname: string;
+  image: string;
+}
+

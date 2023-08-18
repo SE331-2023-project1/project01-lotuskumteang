@@ -9,6 +9,11 @@ import PassengerEditView from '../views/details/PassengerEditView.vue'
 import NProgress from 'nprogress'
 import PassengerService from '@/services/PassengerService'
 import { usePassengerStore, useAirlineStore } from '@/stores/passenger'
+import AdvisorListView from '../views/AdvisorListView.vue'
+import AdvisorLayoutView from '../views/details/AdvisorLayoutView.vue'
+import { useAdvisorStore } from '@/stores/advisor'
+import AdvisorService from '@/services/AdvisorService'
+import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +82,48 @@ const router = createRouter({
         }
       ]
     },
+    //advisor
+    {
+      path: '/advisor',
+      name: 'advisor-list',
+      component: AdvisorListView,
+      props: (route) => ({
+        page: parseInt((route.query?.page as string) || '1')
+      })
+    },
+    {
+      path: '/advisor/:id',
+      name: 'advisor-layout',
+      component: AdvisorLayoutView,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const advisorStore = useAdvisorStore()
+        return AdvisorService.getAdvisorById(id)
+        .then((response) => {
+          advisorStore.setAdvisor(response.data)
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404 ) {
+            return {
+              name: '404-resource',
+              params: { resource: 'advisor'}
+            }
+          } else {
+            return { name: 'network-error'}
+          }
+        })
+      },
+      children: [
+        {
+          path: 'advisor-datail',
+          name: 'advisor-detail',
+          component: AdvisorDetailView,
+          props: true
+        },
+      ]
+    },
+
     {
       path: '/:catchAll(.*)',
       name: 'not-found',

@@ -44,7 +44,7 @@
               </RouterLink>
             </li>
             <li class="min-w-max">
-              <RouterLink class="group-hover:text-white" :to="{ name: 'about' }">
+              <RouterLink class="group-hover:text-white" :to="{ name: 'advisor-list' }">
                 <a href="/about" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white hover:bg-gray-700">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path
@@ -55,7 +55,7 @@
                     <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
                       class="fill-current group-hover:text-gray-600"></path>
                   </svg>
-                  <span class="ml-2">Teacher</span>
+                  <span class="ml-2">Advisor</span>
                 </a>
               </RouterLink>
             </li>
