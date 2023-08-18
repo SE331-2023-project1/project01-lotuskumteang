@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StudentListView from '../views/StudentListView.vue'
 import StudentLayoutView from '../views/details/StudentLayoutView.vue'
-import StudentDetailView from '../view/details/StudentDetailView.vue'
+import StudentDetailView from '../views/details/StudentDetailView.vue'
 import AboutView from '../views/AboutView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import NProgress from 'nprogress'
