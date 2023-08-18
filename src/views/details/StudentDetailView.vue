@@ -15,8 +15,8 @@ defineProps({
     <div class="card-wrapper">
       <div class="card-body">
         <h2>{{ student?.name }} {{ student?.surname }}</h2>
-        <p><span>ID:</span> {{ student?.studentId }}</p>
-        <img src="{{ student?.image }}" alt="">
+        <p><span>ID:</span> {{ student?.id }}</p>
+        <img :src="student?.image" alt="">
       </div>
     </div>
   </div>
