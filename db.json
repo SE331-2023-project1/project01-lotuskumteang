@@ -4,6 +4,7 @@
     "name": "Thaipat",
     "surname": "Sukhumpraisan",
     "image": "https://rb.gy/1jp8m",
+    "advisorId": "1",
     "courseId": ["953331"]
   },
   {
@@ -11,6 +12,7 @@
     "name": "Thaipat",
     "surname": "Sukhumpraisan 2",
     "image": "TODO",
+    "advisorId": "1",
     "courseId": ["953331"]
   },
   {
@@ -18,6 +20,7 @@
     "name": "Thaipat",
     "surname": "Sukhumpraisan 3",
     "image": "TODO",
+    "advisorId": "1",
     "courseId": ["953331"]
   },
   {
@@ -25,6 +28,7 @@
     "name": "Thaipat",
     "surname": "Sukhumpraisan 4",
     "image": "TODO",
+    "advisorId": "1",
     "courseId": ["953331"]
   }]
 }
