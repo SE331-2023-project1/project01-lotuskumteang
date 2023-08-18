@@ -1,8 +1,8 @@
 <template>
-  <!-- <RouterLink
+  <RouterLink
     class="student-link"
     :to="{ name: 'student-detail', params: { id: student?.studentId } }"
-  > -->
+  >
     <article>
       <div class="card-wrapper">
         <div class="card-body">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </article>
-  <!-- </RouterLink> -->
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
