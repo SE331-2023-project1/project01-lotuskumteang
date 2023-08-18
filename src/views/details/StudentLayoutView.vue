@@ -10,6 +10,14 @@ const id = ref(student?.value?.id)
 
 <template>
   <div v-if="student">
+    <RouterLink :to="{name: 'student-detail', params: { id }}">
+        Student Details            
+        </RouterLink>|
+        <!-- Temporary router link -->
+        <RouterLink :to="{name: 'about', params: { id }}">
+        Advisor Details   
+        </RouterLink>
+        
     </div>
     <RouterView :student="student"></RouterView>
 </template>
