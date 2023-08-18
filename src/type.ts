@@ -19,3 +19,10 @@ export interface StudentItem {
 export interface CommentItem {
   comment: string
 }
+
+export interface Advisor {
+  advisorId: string;
+  name: string;
+  surname: string;
+  image: string;
+}

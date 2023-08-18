@@ -88,8 +88,8 @@
                     class="fill-current group-hover:text-gray-600"
                   ></path>
                 </svg>
-                <RouterLink class="group-hover:text-white" :to="{ name: 'about' }"
-                  >Teacher</RouterLink
+                <RouterLink class="group-hover:text-white" :to="{ name: 'advisor-list' }"
+                  >Advisor</RouterLink
                 >
               </a>
             </li>

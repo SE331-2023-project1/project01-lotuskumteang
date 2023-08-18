@@ -30,5 +30,67 @@
     "image": "TODO",
     "advisorId": "1",
     "courseId": ["953331"]
-  }]
+  }],
+  "advisors": [
+    {
+      "advisorId": "1",
+      "name": "John",
+      "surname": "Doe",
+      "image": "https://example.com/john.jpg"
+    },
+    {
+      "advisorId": "2",
+      "name": "Jane",
+      "surname": "Smith",
+      "image": "https://example.com/jane.jpg"
+    },
+    {
+      "advisorId": "3",
+      "name": "Michael",
+      "surname": "Johnson",
+      "image": "https://example.com/michael.jpg"
+    },
+    {
+      "advisorId": "4",
+      "name": "Emily",
+      "surname": "Brown",
+      "image": "https://example.com/emily.jpg"
+    },
+    {
+      "advisorId": "5",
+      "name": "William",
+      "surname": "Davis",
+      "image": "https://example.com/william.jpg"
+    },
+    {
+      "advisorId": "6",
+      "name": "Sophia",
+      "surname": "Wilson",
+      "image": "https://example.com/sophia.jpg"
+    },
+    {
+      "advisorId": "7",
+      "name": "James",
+      "surname": "Moore",
+      "image": "https://example.com/james.jpg"
+    },
+    {
+      "advisorId": "8",
+      "name": "Olivia",
+      "surname": "Taylor",
+      "image": "https://example.com/olivia.jpg"
+    },
+    {
+      "advisorId": "9",
+      "name": "Liam",
+      "surname": "Anderson",
+      "image": "https://example.com/liam.jpg"
+    },
+    {
+      "advisorId": "10",
+      "name": "Ava",
+      "surname": "White",
+      "image": "https://example.com/ava.jpg"
+    }
+  ]
 }
