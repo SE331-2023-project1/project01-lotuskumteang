@@ -89,7 +89,7 @@
                   ></path>
                 </svg>
                 <RouterLink class="group-hover:text-white" :to="{ name: 'advisor-list' }"
-                  >Advisor</RouterLink
+                  >Teacher</RouterLink
                 >
               </a>
             </li>
