@@ -4,6 +4,7 @@ import StudentLayoutView from '../views/details/StudentLayoutView.vue'
 import StudentDetailView from '../views/details/StudentDetailView.vue'
 import AboutView from '../views/AboutView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import NProgress from 'nprogress'
 import StudentService from '@/services/StudentService'
 import { useStudentStore } from '@/stores/student'
@@ -126,7 +127,12 @@ const router = createRouter({
       name: '404-resource',
       component: NotFoundView,
       props: true
-    }
+    },
+    {
+      path: '/network-error',
+      name: 'network-error',
+      component: NetworkErrorView
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
