@@ -91,8 +91,14 @@ const router = createRouter({
         })
       },
       children: [
+        // {
+        //   path: 'advisor-edit',
+        //   name: 'advisor-edit',
+        //   component: AdvisorDetailView,
+        //   props: true
+        // },
         {
-          path: 'advisor-datail',
+          path: 'advisor-detail',
           name: 'advisor-detail',
           component: AdvisorDetailView,
           props: true
