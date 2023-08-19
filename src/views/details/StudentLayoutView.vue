@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useStudentStore } from '@/stores/student'
 import { storeToRefs } from 'pinia'
 import { useAdvisorStore } from '@/stores/advisor';
 
 const useStudent = useStudentStore()
 const student = storeToRefs(useStudent).student
-const id = ref(student?.value?.id)
 const useAdvisor = useAdvisorStore()
 const advisor = storeToRefs(useAdvisor).advisor
 </script>
 
 <template>
   <div v-if="student">
-    <RouterLink :to="{name: 'student-detail', params: { id }}">
+    <RouterLink :to="{name: 'student-detail'}">
         Student Details            
         </RouterLink>|
         <!-- Temporary router link -->
