@@ -14,31 +14,24 @@
         </div>
       </div> -->
 
-      <div class="p-18 space-y-1">
-    <div class="border bg-white">
-        <div class="w-full lg:max-w-full lg:flex">
-            <div class="h-48 lg:w-48 lg:h-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" :style="'background-image: url(' + student?.image + '); background-size: cover; background-position: center center;'" title="Student Image">
+      <div class="p-2 space-y-2">
+    <div class="border bg-white flex">
+        <div class="w-48 h-48 bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" :style="'background-image: url(' + student?.image + '); background-size: cover; background-position: center center;'" title="Student Image">
+        </div>
+        <div class="p-1 border-t lg:border-t-0 border-gray-400 bg-white flex-1 flex flex-col justify-between leading-normal">
+            <div class="mb-2">
+                <p class="text-xs text-gray-500 flex items-center">
+                    Student
+                </p>
+                <div class="text-gray-800 font-bold text-lg mb-1">{{ student?.name }} {{ student?.surname }}</div>
+                <p class="text-gray-700 text-sm">Class Enroll:</p>
+                <p class="text-gray-700 text-sm">ID: {{ student?.id }}</p>
             </div>
-            <div class="p-10 border-t lg:border-t-0 border-gray-400 bg-white lg:rounded-r lg:rounded-b-none lg:border-b lg:border-l lg:border-gray-400 flex flex-col justify-between leading-normal">
-                <div class="mb-4">
-                    <p class="text-xs text-gray-500 flex items-center">
-                        Student
-                    </p>
-                    <div class="text-gray-800 font-bold text-lg mb-1">{{ student?.name }} {{ student?.surname }}</div>
-                    <p class="text-gray-700 text-sm">Class Enroll:</p>
-                    <p class="text-gray-700 text-sm">ID: {{ student?.id }}</p>
-                </div>
-                <div class="flex items-center">
-                </div>
+            <div class="flex items-center">
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
     </article>
   </RouterLink>
 </template>

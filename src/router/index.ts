@@ -40,16 +40,7 @@ const router = createRouter({
         StudentService.getStudentById(id)
           .then((response) => {
             studentStore.setStudent(response.data)
-            // PassengerService.getAirlineById(Number(response.data.airlineId))
-            //   .then((response) => {
-            //     airlineStore.setAirline(response.data)
-            //   })
-            //   .catch((error) => {
-            //     console.log(error)
-            //     if (error.response && error.response.status === 404) {
-            //       return { name: '404-resource', params: { resource: 'AirlineId' } }
-            //     }
-            //   })
+           
           })
           .catch((error) => {
             console.log(error)

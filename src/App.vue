@@ -55,7 +55,7 @@ nav a:first-of-type {
 .flex-container {
   display: flex;
   min-height: 100vh;
-  background-color: #2c3e50;
+  background-color: #F8EAD8;
 }
 
 .main-content {
