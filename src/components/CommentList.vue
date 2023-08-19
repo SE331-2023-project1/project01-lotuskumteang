@@ -1,20 +1,14 @@
 <script setup lang="ts">
-defineProps({
-    comments: {
-      type: Array
-    }
-  })
+import { useCommentStore } from '@/stores/comment'
+import { storeToRefs } from 'pinia'
+const store = useCommentStore()
+const comment = storeToRefs(store).comment
 </script>
 <template>
-    <div class="comment-container">
-        <ul>
-            <li v-for="(comment, index) in comments" :key="index">
-                <div v-if="comment.content">Advisor commented: <br>
-                <p>{{ comment.content }}</p>
-                </div>
-                
-                <br/>
-            </li>
-        </ul>
+  <div class="comment-container">
+    <div v-if="comment">
+      Advisor commented: <br />
+      <p>{{ comment }}</p>
     </div>
+  </div>
 </template>
