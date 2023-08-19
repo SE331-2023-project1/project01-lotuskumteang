@@ -16,9 +16,27 @@ function onSubmit() {
 </script>
 
 <template>
+    <div>
+        <label for="name" class="text-black font-bold font-fig">Leave a comment as advisor:</label>
+    </div>
     <form class="comment-form" @submit.prevent="onSubmit">
-        <label for="comment">Leave comment as advisor:</label>
-        <textarea id="comment" v-model="form.content"></textarea>
-        <input class="button" type="submit" value="Submit">
+      <textarea id="comment" v-model="form.content" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-stone-600"></textarea>
+      <button class="mt-2 bg-65451F hover:bg-8D7B68 text-white py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-stone-600" type="submit">Submit</button>
     </form>
-</template>
+  </template>
+
+<style scoped>
+.comment-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.button {
+  cursor: pointer;
+}
+</style>
