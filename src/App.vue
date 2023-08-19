@@ -4,16 +4,10 @@ import SideBar from './components/SideBar.vue'
 </script>
 
 <template>
-  <!-- <SideBar/>  
-  <RouterView /> -->
   <header>
     <div class="flex-container">
-      <SideBar /> <RouterView />
+      <SideBar /> 
 
-      <!-- <nav>
-        <RouterLink :to="{ name: 'passenger-list' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'about' }">About</RouterLink>
-      </nav> -->
     </div>
   </header>
 </template>
