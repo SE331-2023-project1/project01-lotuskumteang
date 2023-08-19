@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Sidebar from './components/Sidebar.vue'
+import SideBar from './components/SideBar.vue'
 </script>
 
 <template>
-  <!-- <Sidebar/>  
+  <!-- <SideBar/>  
   <RouterView /> -->
   <header>
     <div class="flex-container">
-      <Sidebar /> <RouterView />
+      <SideBar /> <RouterView />
 
       <!-- <nav>
         <RouterLink :to="{ name: 'passenger-list' }">Home</RouterLink>
