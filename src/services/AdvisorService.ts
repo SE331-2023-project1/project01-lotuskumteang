@@ -3,7 +3,7 @@ import type { AxiosInstance, AxiosResponse } from 'axios';
 import type { Advisor } from '@/type';
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3004',
+  baseURL: 'https://my-json-server.typicode.com/SE331-2023-project1/project01-lotuskumteang',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
