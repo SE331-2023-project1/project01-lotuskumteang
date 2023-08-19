@@ -1,10 +1,13 @@
 <script setup lang="ts">
-// import { ref } from 'vue'
+import { ref } from 'vue'
 // import {RouterLink, RouterView } from 'vue-router'
+
 </script>
 <template>
-  <div class="min-h-screen bg-65451F">
-    <div class="sidebar min-h-screen w-[3.35rem] overflow-hidden border-r hover:w-56 hover:bg-65451F hover:shadow-lg">
+  <div class="min-h-screen bg-65451F flex top-0 left-0">
+    <div
+    
+    >
       <div class="flex h-screen flex-col justify-between pt-2 pb-6">
         <div>
           <div class="w-max p-2.5">
@@ -61,9 +64,34 @@
             </li>
           </ul>
         </div>
+        
       </div>
+      
     </div>
+    
   </div>
+  <div class="flex flex-col w-full overflow-auto">
+      <RouterView />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.sidebar {
+  width: 3.35rem;
+  overflow-y: auto;
+  background-color: #65451F; 
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #8D7B68;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #65451F;
+}
+</style>
