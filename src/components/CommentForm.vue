@@ -1,18 +1,16 @@
 <script setup lang="ts">
+import { useCommentStore } from '@/stores/comment';
 import { reactive } from 'vue';
 const form = reactive({
     content: ''
 })
-const emit = defineEmits(['comment-submit'])
+const store = useCommentStore()
 function onSubmit() {
-    const comment = {
-        content: form.content
-    }
     if (form.content === '') {
         alert('Comment is empty.')
         return
     }
-    emit('comment-submit', comment)
+    store.setComment(form.content)
     form.content = ''
 }
 </script>
