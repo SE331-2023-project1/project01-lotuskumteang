@@ -10,7 +10,8 @@ const advisor = storeToRefs(useAdvisor).advisor
 </script>
 
 <template>
-  <div v-if="student">
+  <div v-if="student" class="flex flex-col items-center" >
+    <div class="nav">
     <RouterLink :to="{name: 'student-detail'}">
         Student Details            
         </RouterLink>|
@@ -18,7 +19,7 @@ const advisor = storeToRefs(useAdvisor).advisor
         <RouterLink :to="{name: 'advisor-detail-student'}">
         Advisor Details   
         </RouterLink>
-        
+      </div>
     </div>
     <RouterView :student="student" :advisor="advisor"></RouterView>
 </template>
@@ -31,7 +32,7 @@ const advisor = storeToRefs(useAdvisor).advisor
   margin-top: 3rem;
 }
 .nav a.router-link-exact-active {
-  color: #42b983;
+  color: #65451F;
   font-weight: bold;
 }
 
