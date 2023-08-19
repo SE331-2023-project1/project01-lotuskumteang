@@ -37,10 +37,14 @@ const router = createRouter({
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const studentStore = useStudentStore()
+        const advisorStore = useAdvisorStore()
         StudentService.getStudentById(id)
           .then((response) => {
             studentStore.setStudent(response.data)
-           
+            AdvisorService.getAdvisorById(Number(response.data.advisorId))
+            .then((response) => {
+              advisorStore.setAdvisor(response.data)
+            })
           })
           .catch((error) => {
             console.log(error)
@@ -55,7 +59,13 @@ const router = createRouter({
           name: 'student-detail',
           component: StudentDetailView,
           props: true
-        }
+        },
+        {
+          path: 'advisor',
+          name: 'advisor-detail-student',
+          component: AdvisorDetailView,
+          props: true
+        },
       ]
     },
     //advisor
@@ -91,12 +101,6 @@ const router = createRouter({
         })
       },
       children: [
-        // {
-        //   path: 'advisor-edit',
-        //   name: 'advisor-edit',
-        //   component: AdvisorDetailView,
-        //   props: true
-        // },
         {
           path: 'advisor-detail',
           name: 'advisor-detail',
