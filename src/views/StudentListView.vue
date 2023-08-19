@@ -19,13 +19,12 @@ const props = defineProps({
     required: true
   }
 })
+const limit = ref(props.limit)
 
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvent.value / 2)
+  const totalPages = Math.ceil(totalEvent.value / 6)
   return props.page.valueOf() < totalPages
 })
-
-const limit = ref(props.limit)
 
 watchEffect(() => {
   StudentService.getStudents(6, props.page).then((response) => {
@@ -34,13 +33,16 @@ watchEffect(() => {
   })
 })
 
+console.log(hasNextPage)
 </script>
 
 <template>
-  <main class="mt-12 mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-x-16 gap-y-16">
-    <StudentCard v-for="student in students" :key="student.id" :student="student" />
-  
-  <div class="pagination mt-12 mx-auto text-center">
+  <main class="flex flex-col items-center justify-center h-screen">
+    <div class="flex flex-col items-center">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        <StudentCard v-for="student in students" :key="student.id" :student="student" class="w-full mb-4" />
+      </div>
+      <div class="pagination flex items-center -space-x-px h-10 mt-4">
     <RouterLink
       :to="{ name: 'student-list', query: { page: page - 1, limit: limit } }"
       rel="prev"
@@ -60,29 +62,33 @@ watchEffect(() => {
       Next Page
     </RouterLink>
   </div>
+  </div>
 </main>
 </template>
 
 <style scoped>
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70%;
-}
-
 .pagination-button {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
   padding: 0.5rem 1rem;
+  background-color: #8D7B68;
+  color: white;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
 }
 
-#page-prev {
-  order: 1;
+.pagination-button:hover {
+  background-color: #65451F;
 }
 
-#page-next {
-  order: 2;
+@media (max-width: 767px) {
+  .pagination {
+    flex-direction: column;
+  }
+  .pagination-button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
 </style>
