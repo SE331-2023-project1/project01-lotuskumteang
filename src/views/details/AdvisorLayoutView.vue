@@ -12,7 +12,7 @@ const id = ref(advisor?.value?.id)
   <div v-if="advisor">
     <div class="nav">
       <router-link :to="{ name: 'advisor-detail', params: { id } }">Detail</router-link> | 
-      <router-link :to="{ name: 'advisor-edit', params: { id } }">Edit</router-link>
+      <!-- <router-link :to="{ name: 'advisor-edit', params: { id } }">Edit</router-link> -->
     </div>
 
     <RouterView :advisor="advisor" ></RouterView>
