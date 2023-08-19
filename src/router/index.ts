@@ -42,9 +42,15 @@ const router = createRouter({
           .then((response) => {
             studentStore.setStudent(response.data)
             AdvisorService.getAdvisorById(Number(response.data.advisorId))
-            .then((response) => {
-              advisorStore.setAdvisor(response.data)
-            })
+              .then((response) => {
+                advisorStore.setAdvisor(response.data)
+              })
+              .catch((error) => {
+                console.log(error)
+                if (error.response && error.response.status === 404) {
+                  return { name: '404-resource', params: { resource: 'id' } }
+                }
+              })
           })
           .catch((error) => {
             console.log(error)
@@ -55,7 +61,7 @@ const router = createRouter({
       },
       children: [
         {
-          path: 'detail',
+          path: '',
           name: 'student-detail',
           component: StudentDetailView,
           props: true
@@ -86,19 +92,19 @@ const router = createRouter({
         const id: number = parseInt(to.params.id as string)
         const advisorStore = useAdvisorStore()
         return AdvisorService.getAdvisorById(id)
-        .then((response) => {
-          advisorStore.setAdvisor(response.data)
-        })
-        .catch((error) => {
-          if (error.response && error.response.status === 404 ) {
-            return {
-              name: '404-resource',
-              params: { resource: 'advisor'}
+          .then((response) => {
+            advisorStore.setAdvisor(response.data)
+          })
+          .catch((error) => {
+            if (error.response && error.response.status === 404) {
+              return {
+                name: '404-resource',
+                params: { resource: 'advisor' }
+              }
+            } else {
+              return { name: 'network-error' }
             }
-          } else {
-            return { name: 'network-error'}
-          }
-        })
+          })
       },
       children: [
         {
