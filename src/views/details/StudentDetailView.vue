@@ -19,7 +19,7 @@ defineProps({
         <p class="text-gray-600"><span class="font-semibold">ID:</span> {{ student?.id }}</p>
         <img :src="student?.image" alt="" class="mt-4 rounded-lg shadow-md">
         <CommentForm class="mt-4" :studentId="student?.id"></CommentForm>
-        <CommentList class="mt-4" :studentId="student?.id"></CommentList>
+        <CommentList class="mt-4" :studentId="student?.id" :key="student?.id"></CommentList>
       </div>
     </div>
   </div>
