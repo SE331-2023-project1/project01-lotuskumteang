@@ -1,48 +1,48 @@
 <template>
-    <div>
-      <h2>Add Student</h2>
-      <form @submit.prevent="addStudent">
-        <label for="name">Name:</label>
-        <input v-model="studentData.name" type="text" id="name" required>
-        <label for="surname">Surname:</label>
-        <input v-model="studentData.surname" type="text" id="surname" required>
-        <label for="studentID">Student ID:</label>
-        <input v-model="studentData.studentID" type="text" id="studentID" required>
-        <label for="profileImage">Profile Image URL:</label>
-        <input v-model="studentData.profileImage" type="url" id="profileImage" required>
-        <button type="submit">Add Student</button>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  import { useStudentStore } from '@/stores/student';
-  
-  export default {
-    data() {
-      return {
-        studentData: {
-          name: '',
-          surname: '',
-          studentID: '',
-          profileImage: '',
-          advisorId: ''
-        }
-      };
-    },
-    methods: {
-      async addStudent() {
-        const studentStore = useStudentStore();
-        await studentStore.addStudent(this.studentData);
-        this.studentData = {
-            name: '',
-            surname: '',
-            studentID: '',
-            profileImage: '',
-            advisorId: ''
-        };
-      }
-    }
+  <div>
+    <h2>Add Student</h2>
+    <form @submit.prevent="addStudent">
+      <label for="name">Name:</label>
+      <input v-model="studentData.name" type="text" id="name" required>
+      <label for="surname">Surname:</label>
+      <input v-model="studentData.surname" type="text" id="surname" required>
+      <label for="id">Student ID:</label>
+      <input v-model="studentData.id" type="text" id="id" required>
+      <label for="image">Profile Image URL:</label>
+      <input v-model="studentData.image" type="url" id="image" required>
+      <label for="advisorId">Course ID :</label>
+      <input v-model="studentData.advisorId" type="url" id="advisorId" required>
+      <label for="courseId">Advisor ID :</label>
+      <input v-model="studentData.courseId" type="url" id="courseId" required>
+      <button type="submit">Add Student</button>
+    </form>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useStudentStore } from '@/stores/student';
+import type { StudentItem } from '@/type'; // Import the correct type definition
+
+const studentData = ref<StudentItem>({
+  id: '',
+  name: '',
+  surname: '',
+  image: '',
+  advisorId: '',
+  courseId: ['']
+});
+
+const addStudent = async () => {
+  const studentStore = useStudentStore();
+  studentStore.addStudent(studentData.value);
+  studentData.value = {
+    id: '',
+    name: '',
+    surname: '',
+    image: '',
+    advisorId: '',
+    courseId: ['']
   };
-  </script>
-  
+};
+</script>

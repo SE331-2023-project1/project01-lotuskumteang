@@ -6,36 +6,32 @@
       <input v-model="advisorData.name" type="text" id="name" required>
       <label for="surname">Surname:</label>
       <input v-model="advisorData.surname" type="text" id="surname" required>
-      <label for="profileImage">Profile Image URL:</label>
-      <input v-model="advisorData.profileImage" type="url" id="profileImage" required>
-      <button type="submit">Add Advisor</button>
+      <label for="image">Image URL:</label>
+      <input v-model="advisorData.image" type="url" id="image" required>
+      <button type="submit">Add</button>
     </form>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue';
 import { useAdvisorStore } from '@/stores/advisor';
 
-export default {
-  data() {
-    return {
-      advisorData: {
-        name: '',
-        surname: '',
-        profileImage: ''
-      }
-    };
-  },
-  methods: {
-    async addAdvisor() {
-      const advisorStore = useAdvisorStore();
-      await advisorStore.addAdvisor(this.advisorData); 
-      this.advisorData = {
-        name: '',
-        surname: '',
-        profileImage: ''
-      };
-    }
-  }
+const advisorData = ref({
+  id: '',
+  name: '',
+  surname: '',
+  image: ''
+});
+
+const addAdvisor = async () => {
+  const advisorStore = useAdvisorStore();
+  await advisorStore.addAdvisor(advisorData.value);
+  advisorData.value = {
+    id: '',
+    name: '',
+    surname: '',
+    image: ''
+  };
 };
 </script>
