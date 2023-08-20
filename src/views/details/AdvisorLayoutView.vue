@@ -28,8 +28,8 @@ const router = useRouter()
 </script>
 
 <template>
-  <div v-if="advisor">
-    <RouterView :advisor="advisor" ></RouterView>
+  <div v-if="advisor" class="pt-12">
+    <router-view :advisor="advisor"></router-view>
   </div>
 </template>
 
@@ -41,8 +41,7 @@ const router = useRouter()
   margin-top: 3rem;
 }
 .nav a.router-link-exact-active {
-  color: #42b983;
-  font-weight: bold;
+  @apply text-green-500 font-bold;
 }
 
 .nav a.router-link-exact-active:hover {
@@ -50,8 +49,7 @@ const router = useRouter()
 }
 
 .nav a {
-  display: inline-block;
-  padding: 0 0.5rem;
-  color: #2c3e50;
+  @apply inline-block px-2 py-1 text-gray-700;
 }
 </style>
+

@@ -30,40 +30,36 @@ const router = useRouter()
 </script>
 
 <template>
-  <div v-if="student" class="flex flex-col items-center" >
-    <div class="nav">
-    <RouterLink :to="{name: 'student-detail'}">
-        Student Details            
-        </RouterLink>|
-        <!-- Temporary router link -->
-        <RouterLink :to="{name: 'advisor-detail-student'}">
-        Advisor Details   
-        </RouterLink>
-      </div>
+  <div v-if="student" class="flex flex-col items-center">
+    <div class="flex justify-center items-center mt-12">
+      <router-link :to="{ name: 'student-detail' }" class="router-link">
+        Student Details
+      </router-link>
+      <span class="mx-2">|</span>
+      <!-- Temporary router link -->
+      <router-link :to="{ name: 'advisor-detail-student' }" class="router-link">
+        Advisor Details
+      </router-link>
     </div>
-    <RouterView :student="student" :advisor="advisor"></RouterView>
+  </div>
+  <router-view :student="student" :advisor="advisor"></router-view>
 </template>
 
 <style scoped>
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-}
-.nav a.router-link-exact-active {
+.router-link-exact-active {
   color: #65451F;
   font-weight: bold;
 }
 
-.nav a.router-link-exact-active:hover {
+.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-.nav a {
+.router-link {
   display: inline-block;
   padding: 0 0.5rem;
   color: #2c3e50;
 }
 </style>
+
 @/stores/student
