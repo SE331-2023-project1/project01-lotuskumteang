@@ -1,14 +1,29 @@
 import { defineStore } from 'pinia'
 export const useCommentStore = defineStore('comment', {
   state: () => ({
-    comment: '' as string
+    studentId: [0] as number[],
+    comment: [''] as string[]
   }),
   actions: {
-    setComment(comment: string) {
-      this.comment = comment
+    getIndex(studentId: number) {
+      const index = this.studentId.indexOf(studentId)
+      if (index == -1) {
+        this.studentId.push(studentId)
+        this.comment.push('')
+        console.log(studentId)
+        return this.studentId.length-1
+      }
+      return index
     },
-    resetComment() {
-      this.comment = ''
+    setComment(studentId: number, comment: string) {
+      const index = this.studentId.indexOf(studentId)
+      if (index == -1) {
+        this.studentId.push(studentId)
+        this.comment.push(comment)
+      } else {
+        this.comment[index] = comment
+      }
+      console.log(comment,studentId)
     }
   }
 })
