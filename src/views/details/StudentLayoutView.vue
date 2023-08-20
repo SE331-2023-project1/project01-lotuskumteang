@@ -2,11 +2,31 @@
 import { useStudentStore } from '@/stores/student'
 import { storeToRefs } from 'pinia'
 import { useAdvisorStore } from '@/stores/advisor';
+import { useRouter } from 'vue-router';
+import StudentService from '@/services/StudentService';
+import { type StudentItem } from '@/type';
+import { ref } from 'vue'
 
 const useStudent = useStudentStore()
 const student = storeToRefs(useStudent).student
 const useAdvisor = useAdvisorStore()
 const advisor = storeToRefs(useAdvisor).advisor
+const event = ref<StudentItem | null>(null)
+const props = defineProps({
+  id: String
+})
+
+const router = useRouter()
+    StudentService.getStudentById(Number(props.id)).then((response) => {
+    event.value = response.data
+    }).catch(error => {
+        console.log(error)
+            if(error.response && error.response.status === 404) {
+                router.push({ name: '404-resource', params: { resource: 'event'} })
+            }else {
+                router.push({ name: 'network-error' })
+            }
+    })
 </script>
 
 <template>
