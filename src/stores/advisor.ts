@@ -3,19 +3,20 @@ import { defineStore } from 'pinia'
 
 export const useAdvisorStore = defineStore('advisor', {
   state: () => ({
-    advisors: [] as Advisor[]
+    advisor: null as Advisor | null,
+    newAdvisors: [] as Advisor[]
   }),
   actions: {
-    setAdvisor(advisor: Advisor[]) {
-      this.advisors = advisor
+    setAdvisor(advisor: Advisor) {
+      this.advisor = advisor
     },
     addAdvisor(advisor: Advisor) {
-      this.advisors.push(advisor)
+      this.newAdvisors.push(advisor)
     }
   },
-  getters: {
-    getAdvisorById: (state) => (id: string) => {
-      return state.advisors.find((advisor) => advisor.id === id) || null;
-    }
-  }
+  // getters: {
+  //   getAdvisorById: (state) => (id: string) => {
+  //     return state.newAdvisors.find((advisor) => advisor.id === id) || null;
+  //   }
+  // }
 })

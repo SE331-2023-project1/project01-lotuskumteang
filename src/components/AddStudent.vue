@@ -9,11 +9,11 @@
       <label for="id">Student ID:</label>
       <input v-model="studentData.id" type="text" id="id" required>
       <label for="image">Profile Image URL:</label>
-      <input v-model="studentData.image" type="url" id="image" required>
+      <input v-model="studentData.image" type="text" id="image" required>
       <label for="advisorId">Course ID :</label>
-      <input v-model="studentData.advisorId" type="url" id="advisorId" required>
+      <input v-model="studentData.advisorId" type="text" id="advisorId" required>
       <label for="courseId">Advisor ID :</label>
-      <input v-model="studentData.courseId" type="url" id="courseId" required>
+      <input v-model="studentData.courseId" type="text" id="courseId" required>
       <button type="submit">Add Student</button>
     </form>
   </div>
@@ -25,7 +25,7 @@ import { useStudentStore } from '@/stores/student';
 import type { StudentItem } from '@/type'; // Import the correct type definition
 
 const studentData = ref<StudentItem>({
-  id: '',
+  id: 0,
   name: '',
   surname: '',
   image: '',
@@ -37,7 +37,7 @@ const addStudent = async () => {
   const studentStore = useStudentStore();
   studentStore.addStudent(studentData.value);
   studentData.value = {
-    id: '',
+    id: 0,
     name: '',
     surname: '',
     image: '',
