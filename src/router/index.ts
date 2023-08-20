@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import StudentListView from '../views/StudentListView.vue'
 import StudentLayoutView from '../views/details/StudentLayoutView.vue'
 import StudentDetailView from '../views/details/StudentDetailView.vue'
-import AboutView from '../views/AboutView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import NProgress from 'nprogress'
@@ -24,11 +23,6 @@ const router = createRouter({
       props: (route) => ({
         page: parseInt((route.query?.page as string) || '1')
       })
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: AboutView
     },
     {
       path: '/student/:id',
