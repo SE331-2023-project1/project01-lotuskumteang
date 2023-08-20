@@ -4,7 +4,6 @@ import type { Advisor } from '@/type'
 import { ref, watchEffect, computed } from 'vue'
 import type { Ref } from 'vue'
 import AdvisorService from '@/services/AdvisorService'
-import { useRouter } from 'vue-router'
 
 const advisors: Ref<Array<Advisor>> = ref([])
 
@@ -32,9 +31,6 @@ watchEffect(() => {
     totalEvent.value = response.headers['x-total-count']
   })
 })
-
-const router = useRouter()
-
 const limit = ref(props.limit)
 </script>
 
@@ -42,36 +38,41 @@ const limit = ref(props.limit)
   <main class="flex flex-col items-center justify-center h-screen">
     <div class="flex flex-col items-center">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        <AdvisorCard v-for="advisor in advisors" :key="advisor.id" :advisor="advisor" class="w-full mb-4" />
+        <AdvisorCard
+          v-for="advisor in advisors"
+          :key="advisor.id"
+          :advisor="advisor"
+          class="w-full mb-4"
+        />
       </div>
       <div class="pagination flex items-center -space-x-px h-10 mt-4">
-    <RouterLink
-      :to="{ name: 'advisor-list', query: { page: page - 1, limit: limit } }"
-      rel="prev"
-      v-if="page != 1 && advisors.length > 0"
-      id="page-prev"
-      class="pagination-button"
-    >
-      Prev Page
-    </RouterLink>
-    <RouterLink
-      :to="{ name: 'advisor-list', query: { page: page + 1, limit: limit } }"
-      rel="next"
-      v-if="hasNextPage && advisors.length > 0"
-      id="page-next"
-      class="pagination-button"
-    >
-      Next Page
-    </RouterLink>
-  </div>
-  </div>
-</main>
+        <RouterLink
+          :to="{ name: 'advisor-list', query: { page: page - 1, limit: limit } }"
+          rel="prev"
+          v-if="page != 1 && advisors.length > 0"
+          id="page-prev"
+          class="pagination-button"
+        >
+          Prev Page
+        </RouterLink>
+        <RouterLink
+          :to="{ name: 'advisor-list', query: { page: page + 1, limit: limit } }"
+          rel="next"
+          v-if="hasNextPage && advisors.length > 0"
+          id="page-next"
+          class="pagination-button"
+        >
+          Next Page
+        </RouterLink>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped>
 .pagination-button {
   padding: 0.5rem 1rem;
-  background-color: #8D7B68;
+  background-color: #8d7b68;
   color: white;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease-in-out;
@@ -81,7 +82,7 @@ const limit = ref(props.limit)
 }
 
 .pagination-button:hover {
-  background-color: #65451F;
+  background-color: #65451f;
 }
 
 @media (max-width: 767px) {

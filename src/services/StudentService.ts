@@ -17,8 +17,5 @@ export default {
   },
   getStudentById(id: number): Promise<AxiosResponse<StudentItem>> {
     return apiClient.get<StudentItem>('/students/' + id.toString())
-  },
-  // getAirlineById(id: number): Promise<AxiosResponse<StudentItem>> {
-  //   return apiClient.get<StudentItem>('airline/' + id.toString())
-  // }
+  }
 }
