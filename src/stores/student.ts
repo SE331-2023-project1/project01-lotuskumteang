@@ -3,25 +3,15 @@ import { defineStore } from 'pinia'
 
 export const useStudentStore = defineStore('Student', {
   state: () => ({
-    students: [] as StudentItem[]
+    student: null as StudentItem | null,
+    newStudents: [] as StudentItem[]
   }),
   actions: {
-    setStudent(student: StudentItem[]) {
-      this.students = student
+    setStudent(student: StudentItem) {
+      this.student = student
     },
     addStudent(student: StudentItem) {
-      this.students.push(student)
+      this.newStudents.push(student)
     }
   }
 })
-
-// export const useAirlineStore = defineStore('airline', {
-//   state: () => ({
-//     airline: null as Student | null
-//   }),
-//   actions: {
-//     setAirline(airline: Student) {
-//       this.airline = airline
-//     }
-//   }
-// })
