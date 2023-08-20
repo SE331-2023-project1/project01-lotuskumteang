@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import CommentForm from '@/components/CommentForm.vue'
 import CommentList from '@/components/CommentList.vue'
-import { useCommentStore } from '@/stores/comment'
 import type { StudentItem } from '@/type'
-import type { PropType } from 'vue'
+import { type PropType } from 'vue'
 defineProps({
   student: {
     type: Object as PropType<StudentItem>,
     require: true
   }
 })
-useCommentStore().resetComment()
 </script>
 
 <template>
@@ -20,8 +18,8 @@ useCommentStore().resetComment()
         <h2 class="text-2xl font-semibold mb-2">{{ student?.name }} {{ student?.surname }}</h2>
         <p class="text-gray-600"><span class="font-semibold">ID:</span> {{ student?.id }}</p>
         <img :src="student?.image" alt="" class="mt-4 rounded-lg shadow-md">
-        <CommentForm class="mt-4"></CommentForm>
-        <CommentList class="mt-4"></CommentList>
+        <CommentForm class="mt-4" :studentId="student?.id"></CommentForm>
+        <CommentList class="mt-4" :studentId="student?.id" :key="student?.id"></CommentList>
       </div>
     </div>
   </div>

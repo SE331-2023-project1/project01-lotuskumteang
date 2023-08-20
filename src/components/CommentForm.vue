@@ -5,12 +5,18 @@ const form = reactive({
     content: ''
 })
 const store = useCommentStore()
+const props = defineProps({
+  studentId: {
+    type: Number
+  }
+})
+
 function onSubmit() {
     if (form.content === '') {
         alert('Comment is empty.')
         return
     }
-    store.setComment(form.content)
+    store.setComment(props.studentId!, form.content)
     form.content = ''
 }
 </script>

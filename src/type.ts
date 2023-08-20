@@ -8,7 +8,7 @@ export interface EventItem {
 
 // StudentItem type
 export interface StudentItem {
-  id: string
+  id: number
   name: string
   surname: string
   image: string
