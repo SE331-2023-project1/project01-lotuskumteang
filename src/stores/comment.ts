@@ -10,7 +10,6 @@ export const useCommentStore = defineStore('comment', {
       if (index == -1) {
         this.studentId.push(studentId)
         this.comment.push('')
-        console.log(studentId)
         return this.studentId.length-1
       }
       return index
@@ -23,7 +22,6 @@ export const useCommentStore = defineStore('comment', {
       } else {
         this.comment[index] = comment
       }
-      console.log(comment,studentId)
     }
   }
 })

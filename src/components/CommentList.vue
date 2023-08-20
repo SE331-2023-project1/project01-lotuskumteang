@@ -10,7 +10,6 @@ const props = defineProps({
 const store = useCommentStore()
 const index = store.getIndex(props.studentId!)
 const comment = storeToRefs(store).comment
-console.log('get ',index)
 </script>
 <template>
   <div class="comment-container">
