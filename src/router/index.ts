@@ -1,80 +1,113 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PassengerListView from '../views/PassengerListView.vue'
-import AboutView from '../views/AboutView.vue'
-import PassengerDetailView from '../views/details/PassengerDetailView.vue'
-import PassengerLayoutView from '../views/details/PassengerLayoutView.vue'
-import PassengerAirlineView from '../views/details/PassengerAirlineView.vue'
+import StudentListView from '../views/StudentListView.vue'
+import StudentLayoutView from '../views/details/StudentLayoutView.vue'
+import StudentDetailView from '../views/details/StudentDetailView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
-import PassengerEditView from '../views/details/PassengerEditView.vue'
+import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import NProgress from 'nprogress'
-import PassengerService from '@/services/PassengerService'
-import { usePassengerStore, useAirlineStore } from '@/stores/passenger'
+import StudentService from '@/services/StudentService'
+import { useStudentStore } from '@/stores/student'
+import AdvisorListView from '../views/AdvisorListView.vue'
+import AdvisorLayoutView from '../views/details/AdvisorLayoutView.vue'
+import { useAdvisorStore } from '@/stores/advisor'
+import AdvisorService from '@/services/AdvisorService'
+import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'passenger-list',
-      component: PassengerListView,
+      name: 'student-list',
+      component: StudentListView,
       props: (route) => ({
         page: parseInt((route.query?.page as string) || '1')
       })
     },
     {
-      path: '/about',
-      name: 'about',
-      component: AboutView
-    },
-    {
-      path: '/passenger/:id',
-      name: 'passenger-layout',
-      component: PassengerLayoutView,
+      path: '/student/:id',
+      name: 'student-layout',
+      component: StudentLayoutView,
       props: true,
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
-        const passengerStore = usePassengerStore()
-        const airlineStore = useAirlineStore()
-        PassengerService.getPassengerById(id)
+        const studentStore = useStudentStore()
+        const advisorStore = useAdvisorStore()
+        StudentService.getStudentById(id)
           .then((response) => {
-            passengerStore.setPassenger(response.data)
-            PassengerService.getAirlineById(Number(response.data.airlineId))
+            studentStore.setStudent(response.data)
+            AdvisorService.getAdvisorById(Number(response.data.advisorId))
               .then((response) => {
-                airlineStore.setAirline(response.data)
+                advisorStore.setAdvisor(response.data)
               })
               .catch((error) => {
                 console.log(error)
                 if (error.response && error.response.status === 404) {
-                  return { name: '404-resource', params: { resource: 'AirlineId' } }
+                  return { name: '404-resource', params: { resource: 'id' } }
                 }
               })
           })
           .catch((error) => {
             console.log(error)
             if (error.response && error.response.status === 404) {
-              return { name: '404-resource', params: { resource: 'PassengerId' } }
+              return { name: '404-resource', params: { resource: 'id' } }
             }
           })
       },
       children: [
         {
           path: '',
-          name: 'passenger-detail',
-          component: PassengerDetailView,
+          name: 'student-detail',
+          component: StudentDetailView,
           props: true
         },
         {
-          path: 'airline',
-          name: 'passenger-airline',
-          component: PassengerAirlineView,
+          path: 'advisor',
+          name: 'advisor-detail-student',
+          component: AdvisorDetailView,
           props: true
         },
+      ]
+    },
+    //advisor
+    {
+      path: '/advisor',
+      name: 'advisor-list',
+      component: AdvisorListView,
+      props: (route) => ({
+        page: parseInt((route.query?.page as string) || '1')
+      })
+    },
+    {
+      path: '/advisor/:id',
+      name: 'advisor-layout',
+      component: AdvisorLayoutView,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const advisorStore = useAdvisorStore()
+        return AdvisorService.getAdvisorById(id)
+          .then((response) => {
+            advisorStore.setAdvisor(response.data)
+          })
+          .catch((error) => {
+            if (error.response && error.response.status === 404) {
+              return {
+                name: '404-resource',
+                params: { resource: 'advisor' }
+              }
+            } else {
+              return { name: 'network-error' }
+            }
+          })
+      },
+      children: [
         {
-          path: 'edit',
-          name: 'passenger-edit',
-          component: PassengerEditView,
+          path: 'advisor-detail',
+          name: 'advisor-detail',
+          component: AdvisorDetailView,
           props: true
-        }
+        },
       ]
     },
     {
@@ -87,7 +120,12 @@ const router = createRouter({
       name: '404-resource',
       component: NotFoundView,
       props: true
-    }
+    },
+    {
+      path: '/network-error',
+      name: 'network-error',
+      component: NetworkErrorView
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -95,7 +133,7 @@ const router = createRouter({
     } else {
       return { top: 0 }
     }
-  },
+  }
 })
 
 router.beforeEach(() => {

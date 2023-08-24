@@ -7,9 +7,21 @@ export interface EventItem {
 }
 
 export interface StudentItem {
-  studentId: number,
-    name: string,
-    surname: string,
-    image: string,
-    courseId: string[]
+  id: number
+  name: string
+  surname: string
+  image: string
+  advisorId: string
+  courseId: [string]
+}
+
+export interface CommentItem {
+  comment: string
+}
+
+export interface Advisor {
+  id: string;
+  name: string;
+  surname: string;
+  image: string;
 }
