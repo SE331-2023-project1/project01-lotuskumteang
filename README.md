@@ -8,7 +8,7 @@
 | 642115024 | Thaiphat Sukhumpraisan | [LiquifiedPopuko](https://github.com/LiquifiedPopuko) |
 
 ## Web Application URL
-### Firebase Deployment: []()
+### Firebase Deployment: [https://lotuskumteang.web.app/](https://lotuskumteang.web.app/)
 ### My JSON Server: [project01-lotuskumteang](https://my-json-server.typicode.com/SE331-2023-project1/project01-lotuskumteang)
 
 
