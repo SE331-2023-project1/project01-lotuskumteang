@@ -14,9 +14,4 @@ export const useAdvisorStore = defineStore('advisor', {
       this.newAdvisors.push(advisor)
     }
   },
-  // getters: {
-  //   getAdvisorById: (state) => (id: string) => {
-  //     return state.newAdvisors.find((advisor) => advisor.id === id) || null;
-  //   }
-  // }
 })

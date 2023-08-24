@@ -36,7 +36,6 @@ const router = useRouter()
         Student Details
       </router-link>
       <span class="mx-2">|</span>
-      <!-- Temporary router link -->
       <router-link :to="{ name: 'advisor-detail-student' }" class="router-link">
         Advisor Details
       </router-link>

@@ -6,7 +6,6 @@ export interface EventItem {
     courseId: string[]
 }
 
-// StudentItem type
 export interface StudentItem {
   id: number
   name: string
