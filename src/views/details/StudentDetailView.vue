@@ -17,6 +17,11 @@ defineProps({
       <div class="text-center">
         <h2 class="text-2xl font-semibold mb-2">{{ student?.name }} {{ student?.surname }}</h2>
         <p class="text-gray-600"><span class="font-semibold">ID:</span> {{ student?.id }}</p>
+        <p class="text-gray-600"><span class="font-semibold">Enrolled Courses: </span> 
+          <ul>
+            <li v-for="courseId in student?.courseId" :key="courseId">{{ courseId }}</li>
+          </ul>
+        </p>
         <img :src="student?.image" alt="" class="mt-4 rounded-lg shadow-md max-w-full h-auto">
       </div>
       <CommentForm class="mt-4" :studentId="student?.id"></CommentForm>
