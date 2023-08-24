@@ -47,11 +47,7 @@ const limit = ref(props.limit)
           class="w-full mb-4"
         />
       </div>
-
-      <!-- Add advisor test -->
       <AddAdvisor/>
-      <!-- Add advisor test -->
-      
       <div class="pagination flex items-center -space-x-px h-10 mt-4">
         <RouterLink
           :to="{ name: 'advisor-list', query: { page: page - 1, limit: limit } }"
