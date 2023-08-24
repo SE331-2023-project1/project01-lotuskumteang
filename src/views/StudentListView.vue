@@ -4,7 +4,7 @@ import type { StudentItem } from '@/type'
 import { ref, watchEffect, computed } from 'vue'
 import type { Ref } from 'vue'
 import StudentService from '@/services/StudentService'
-import AddStudent from '@/components/AddStudent.vue'
+// import AddStudent from '@/components/AddStudent.vue'
 
 
 const students: Ref<Array<StudentItem>> = ref([])
