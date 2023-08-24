@@ -1,46 +1,30 @@
-# vite-project
+# SE331 Component-Based Software Developmen: Term Project I
+### Group Name: **lotuskumteang**
+### Contributors: 
+| Student ID  | Name             | Github |
+| --------- | ---------------- | ---------- |
+| 642115006 | Jakkaphat Ploylake | [RiDerTus](https://github.com/ridertus) |
+| 642115019 | Taninwat Phuttichaiwarangkul | [Famousboyz](https://github.com/Famousboyz) |
+| 642115024 | Thaiphat Sukhumpraisan | [LiquifiedPopuko](https://github.com/LiquifiedPopuko) |
 
-This template should help get you started developing with Vue 3 in Vite.
+## Web Application URL
+### Firebase Deployment: []()
+### My JSON Server: [project01-lotuskumteang](https://my-json-server.typicode.com/SE331-2023-project1/project01-lotuskumteang)
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Checklist
+| Requirement | List |
+| --------- | ---------------- |
+| The mock data is provided | The mock data with the enough proper data has been provided (enough to test with the pagination) |
+| The layout of web site | The layout is not as the same as the Event application, and show the proper responsiveness |
+| The can show all students list | The system can load the data with pagination with the proper technique |
+| The system can show the basic details of the students | The api call technique is used properly |
+| The system can show the advisor of the students.| The api call technique is used properly |
+| The system can show the advisor list | The api call technique is used properly |
+| The system should allows admin to add the comments to the students | The basic api call is used |
+| The CSS framework is used | The CSS framework is used in all web components |
+| The RouteNavigation Guard is provided | The route Navaition is setup at the index.js |
+| The Pinia has been setup | Proper state, getter, and action are provided |
+| The overall UI Design | Base on the pleasure of marker |
+| The overall UX design | The progress bar is used properly  |
+| The deployment | The proper automatic deployment is set |
