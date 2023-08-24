@@ -11,7 +11,6 @@
             Student
           </p>
           <div class="text-gray-800 font-bold text-lg mb-1">{{ student?.name }} {{ student?.surname }}</div>
-          <p class="text-gray-700 text-sm mb-1">Class Enroll:</p>
           <p class="text-gray-700 text-sm mb-1">ID: {{ student?.id }}</p>
         </div>
       </div>
