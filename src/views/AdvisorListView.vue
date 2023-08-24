@@ -4,7 +4,7 @@ import type { Advisor } from '@/type'
 import { ref, watchEffect, computed } from 'vue'
 import type { Ref } from 'vue'
 import AdvisorService from '@/services/AdvisorService'
-import AddAdvisor from '@/components/AddAdvisor.vue'
+// import AddAdvisor from '@/components/AddAdvisor.vue'
 
 
 const advisors: Ref<Array<Advisor>> = ref([])
@@ -47,7 +47,7 @@ const limit = ref(props.limit)
           class="w-full mb-4"
         />
       </div>
-      <AddAdvisor/>
+      <!-- Not using add advisor, keeping code only <AddAdvisor/> -->
       <div class="pagination flex items-center -space-x-px h-10 mt-4">
         <RouterLink
           :to="{ name: 'advisor-list', query: { page: page - 1, limit: limit } }"
