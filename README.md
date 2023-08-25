@@ -11,6 +11,8 @@
 ### Firebase Deployment: [https://lotuskumteang.web.app/](https://lotuskumteang.web.app/)
 ### My JSON Server: [project01-lotuskumteang](https://my-json-server.typicode.com/SE331-2023-project1/project01-lotuskumteang)
 
+### NOTE
+The score is subtracted 5% for late commit.
 
 ## Checklist
 | Requirement | List |
